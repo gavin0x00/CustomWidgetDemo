@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/pullRefresh_RecyclerView"
+        android:title="RecyclerView" />
+    <item
+        android:id="@+id/pullRefresh_ScrollView"
+        android:title="ScrollView" />
+    <item
+        android:id="@+id/pullRefresh_ListView"
+        android:title="ListView" />
+</menu>

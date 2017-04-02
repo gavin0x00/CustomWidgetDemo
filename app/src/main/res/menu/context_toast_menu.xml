@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:title="default"
+    android:id="@+id/context_toast_menu_defaultToast"
+    />
+    <item android:title="customView"
+    android:id="@+id/context_toast_menu_customViewToast"
+    />
+</menu>
