@@ -1,0 +1,18 @@
+<com.newtrekwang.customwidgetdemo.PullRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/scrollViewFragment_pullRefreshLayout"
+    android:layout_height="match_parent"
+    tools:context="com.newtrekwang.customwidgetdemo.fragment.ScrollViewFragment">
+<ScrollView
+    android:layout_width="match_parent"
+    android:id="@+id/scrollViewFragment_scollView"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:text="this is a ScrollView"
+        android:id="@+id/scrollViewFragment_textView"
+        android:layout_height="wrap_content" />
+</ScrollView>
+
+</com.newtrekwang.customwidgetdemo.PullRefreshLayout>

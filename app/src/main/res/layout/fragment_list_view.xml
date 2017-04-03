@@ -1,0 +1,14 @@
+<com.newtrekwang.customwidgetdemo.PullRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/listViewFragment_pullRefreshLayout"
+    android:layout_height="match_parent"
+    tools:context="com.newtrekwang.customwidgetdemo.fragment.ListViewFragment">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:id="@+id/listViewFragment_listView"
+        android:layout_height="match_parent"
+      />
+
+</com.newtrekwang.customwidgetdemo.PullRefreshLayout>
