@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.newtrekwang.customwidgetdemo.activity.CommonActivity;
 import com.newtrekwang.customwidgetdemo.activity.ImageActivity;
 import com.newtrekwang.customwidgetdemo.activity.PullRefreshLayoutActivity;
 import com.newtrekwang.customwidgetdemo.toast.ToastBuilder;
@@ -47,10 +48,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Map<String,String> map_2=new HashMap<>();
         map_2.put("title","CustomToast");
         list.add(map_2);
- Map<String,String> map_3=new HashMap<>();
+        Map<String,String> map_3=new HashMap<>();
         map_3.put("title","ImageLoader");
         list.add(map_3);
-
+        Map<String,String> map_4=new HashMap<>();
+        map_4.put("title","ExpandTextView");
+        list.add(map_4);
+        Map<String,String> map_5=new HashMap<>();
+        map_5.put("title","AutoScrollViewPager");
+        list.add(map_5);
     }
 
     private void init() {
@@ -71,6 +77,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
             case 2:
                 startActivity(new Intent(MainActivity.this, ImageActivity.class));
+                break;
+            case 3:
+                Intent intent_1=new Intent(MainActivity.this, CommonActivity.class);
+                intent_1.putExtra("key",100);
+                startActivity(intent_1);
+                break;
+            case 4:
+                Intent intent_2=new Intent(MainActivity.this, CommonActivity.class);
+                intent_2.putExtra("key",101);
+                startActivity(intent_2);
                 break;
             default:
                 break;

@@ -12,4 +12,7 @@
         <attr name="comment_textColor" format="color"/>
         <attr name="comment_textSize" format="dimension"/>
     </declare-styleable>
+    <declare-styleable name="ExpandTextView">
+        <attr name="showLines" format="integer"/>
+    </declare-styleable>
 </resources>

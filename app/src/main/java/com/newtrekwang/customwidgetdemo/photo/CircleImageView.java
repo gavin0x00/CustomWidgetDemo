@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.newtrekwang.customwidgetdemo;
+package com.newtrekwang.customwidgetdemo.photo;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -34,6 +34,9 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
+
+import com.newtrekwang.customwidgetdemo.R;
+
 /**
  * 自定义图片圆形显示控件，
  */

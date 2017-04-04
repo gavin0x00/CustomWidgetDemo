@@ -1,0 +1,16 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.newtrekwang.customwidgetdemo.fragment.ViewPagerFragment">
+    <com.newtrekwang.customwidgetdemo.viewpager.AutoScrollViewPager
+        android:layout_width="match_parent"
+        android:id="@+id/autoViewPager"
+        android:layout_height="300dp"></com.newtrekwang.customwidgetdemo.viewpager.AutoScrollViewPager>
+    <me.relex.circleindicator.CircleIndicator
+        android:layout_width="match_parent"
+        android:layout_marginTop="280dp"
+        android:id="@+id/indicator"
+        android:layout_height="20dp"></me.relex.circleindicator.CircleIndicator>
+</FrameLayout>
