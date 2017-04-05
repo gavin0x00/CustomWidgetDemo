@@ -7,10 +7,16 @@
     <com.newtrekwang.customwidgetdemo.viewpager.AutoScrollViewPager
         android:layout_width="match_parent"
         android:id="@+id/autoViewPager"
-        android:layout_height="300dp"></com.newtrekwang.customwidgetdemo.viewpager.AutoScrollViewPager>
+        android:layout_height="200dp"></com.newtrekwang.customwidgetdemo.viewpager.AutoScrollViewPager>
     <me.relex.circleindicator.CircleIndicator
         android:layout_width="match_parent"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="180dp"
         android:id="@+id/indicator"
         android:layout_height="20dp"></me.relex.circleindicator.CircleIndicator>
+<android.support.v7.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_marginTop="230dp"
+    android:id="@+id/fragment_view_pager_recyclerView"
+    android:layout_height="200dp"></android.support.v7.widget.RecyclerView>
+
 </FrameLayout>

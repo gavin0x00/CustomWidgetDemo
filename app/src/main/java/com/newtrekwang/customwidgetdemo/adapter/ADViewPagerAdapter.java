@@ -32,7 +32,7 @@ public ADViewPagerAdapter(Context context){
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         ImageView imageView=new ImageView(container.getContext());
-        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         container.addView(imageView ,ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
         return imageView;

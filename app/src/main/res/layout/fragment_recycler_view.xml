@@ -1,13 +1,12 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.newtrekwang.customwidgetdemo.PullRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/pullRefreshView"
     android:layout_height="match_parent"
     tools:context="com.newtrekwang.customwidgetdemo.fragment.RecyclerViewFragment">
+<android.support.v7.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:id="@+id/recyclerView"
+    android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+</com.newtrekwang.customwidgetdemo.PullRefreshLayout>

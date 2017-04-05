@@ -18,7 +18,7 @@ import com.newtrekwang.customwidgetdemo.fragment.ScrollViewFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PullRefreshLayoutActivity extends AppCompatActivity implements ScrollViewFragment.OnFragmentInteractionListener,RecyclerViewFragment.OnFragmentInteractionListener{
+public class PullRefreshLayoutActivity extends AppCompatActivity implements ScrollViewFragment.OnFragmentInteractionListener{
 
     private FragmentManager fragmentManager;
     private List<Fragment>  fragmentList;
