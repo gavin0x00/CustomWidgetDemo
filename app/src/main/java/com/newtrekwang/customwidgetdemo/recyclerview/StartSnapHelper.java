@@ -95,6 +95,7 @@ public class StartSnapHelper extends LinearSnapHelper {
         if (mHorizontalHelper == null) {
             mHorizontalHelper = OrientationHelper.createHorizontalHelper(layoutManager);
         }
+
         return mHorizontalHelper;
     }
 

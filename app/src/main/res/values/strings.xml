@@ -4,4 +4,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="textstring">12rfteoghdoghaisdjgsalgddalndasldjgsoio3t3023utjsaodjdgjadgjnbladfjlasjeoijtoqgnalgnalgvnalgdkajl</string>
+    <string name="dialog_fire_missiles">Fire missiles?</string>
+    <string name="fire">FIRE</string>
+    <string name="cancel">CANCEL</string>
+    <string name="ok">OK</string>
+    <string name="username">UserName</string>
+    <string name="password">Password</string>
 </resources>

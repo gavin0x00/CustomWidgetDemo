@@ -10,10 +10,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.newtrekwang.customwidgetdemo.R;
+import com.newtrekwang.customwidgetdemo.fragment.DialogItemFragment;
 import com.newtrekwang.customwidgetdemo.fragment.ExpandTextViewFragment;
 import com.newtrekwang.customwidgetdemo.fragment.ViewPagerFragment;
 
-public class CommonActivity extends AppCompatActivity {
+public class CommonActivity extends AppCompatActivity  {
     private FragmentManager fragmentManager;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,6 +37,12 @@ public class CommonActivity extends AppCompatActivity {
                 ViewPagerFragment viewPagerFragment=new ViewPagerFragment();
                 fragmentTransaction_2.replace(android.R.id.content,viewPagerFragment);
                 fragmentTransaction_2.commit();
+                break;
+            case 102:
+                FragmentTransaction fragmentTransaction_3=fragmentManager.beginTransaction();
+                DialogItemFragment dialogItemFragment=new DialogItemFragment();
+                fragmentTransaction_3.replace(android.R.id.content,dialogItemFragment);
+                fragmentTransaction_3.commit();
                 break;
             default:
                 break;
@@ -63,6 +70,12 @@ public class CommonActivity extends AppCompatActivity {
                 ViewPagerFragment viewPagerFragment=new ViewPagerFragment();
                 fragmentTransaction_2.replace(android.R.id.content,viewPagerFragment);
                 fragmentTransaction_2.commit();
+                return true;
+            case R.id.menu_item_dialog:
+                FragmentTransaction fragmentTransaction_3=fragmentManager.beginTransaction();
+                DialogItemFragment dialogItemFragment=new DialogItemFragment();
+                fragmentTransaction_3.replace(android.R.id.content,dialogItemFragment);
+                fragmentTransaction_3.commit();
                 return true;
             default:
                 return false;

@@ -57,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Map<String,String> map_5=new HashMap<>();
         map_5.put("title","AutoScrollViewPager");
         list.add(map_5);
+        Map<String,String> map_6=new HashMap<>();
+        map_6.put("title","Dialog");
+        list.add(map_6);
+
     }
 
     private void init() {
@@ -87,6 +91,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Intent intent_2=new Intent(MainActivity.this, CommonActivity.class);
                 intent_2.putExtra("key",101);
                 startActivity(intent_2);
+                break;
+            case 5:
+                Intent intent_3=new Intent(MainActivity.this,CommonActivity.class);
+                intent_3.putExtra("key",102);
+                startActivity(intent_3);
                 break;
             default:
                 break;
