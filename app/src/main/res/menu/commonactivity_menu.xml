@@ -6,4 +6,6 @@
         android:id="@+id/menu_item_autoViewPager"/>
     <item android:id="@+id/menu_item_dialog"
         android:title="dialog"/>
+    <item android:id="@+id/menu_item_ContentProvider"
+        android:title="ContentProvider"/>
 </menu>

@@ -60,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Map<String,String> map_6=new HashMap<>();
         map_6.put("title","Dialog");
         list.add(map_6);
+        Map<String,String> map_7=new HashMap<>();
+        map_7.put("title","ContentProvider");
+        list.add(map_7);
 
     }
 
@@ -68,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mainActivtyListView.setAdapter(simpleAdapter);
         mainActivtyListView.setOnItemClickListener(this);
     }
-
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -96,6 +98,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Intent intent_3=new Intent(MainActivity.this,CommonActivity.class);
                 intent_3.putExtra("key",102);
                 startActivity(intent_3);
+                break;
+            case 6:
+                Intent intent_4=new Intent(MainActivity.this,CommonActivity.class);
+                intent_4.putExtra("key",103);
+                startActivity(intent_4);
                 break;
             default:
                 break;

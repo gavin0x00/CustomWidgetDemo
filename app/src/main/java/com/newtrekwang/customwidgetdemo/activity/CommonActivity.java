@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.newtrekwang.customwidgetdemo.R;
+import com.newtrekwang.customwidgetdemo.fragment.ContentProviderFragment;
 import com.newtrekwang.customwidgetdemo.fragment.DialogItemFragment;
 import com.newtrekwang.customwidgetdemo.fragment.ExpandTextViewFragment;
 import com.newtrekwang.customwidgetdemo.fragment.ViewPagerFragment;
@@ -44,6 +45,12 @@ public class CommonActivity extends AppCompatActivity  {
                 fragmentTransaction_3.replace(android.R.id.content,dialogItemFragment);
                 fragmentTransaction_3.commit();
                 break;
+            case 103:
+                FragmentTransaction fragmentTransaction_4=fragmentManager.beginTransaction();
+                ContentProviderFragment contentProviderFragment=new ContentProviderFragment();
+                fragmentTransaction_4.replace(android.R.id.content,contentProviderFragment);
+                fragmentTransaction_4.commit();
+                break;
             default:
                 break;
         }
@@ -76,6 +83,12 @@ public class CommonActivity extends AppCompatActivity  {
                 DialogItemFragment dialogItemFragment=new DialogItemFragment();
                 fragmentTransaction_3.replace(android.R.id.content,dialogItemFragment);
                 fragmentTransaction_3.commit();
+                return true;
+            case R.id.menu_item_ContentProvider:
+                FragmentTransaction fragmentTransaction_4=fragmentManager.beginTransaction();
+                ContentProviderFragment contentProviderFragment=new ContentProviderFragment();
+                fragmentTransaction_4.replace(android.R.id.content,contentProviderFragment);
+                fragmentTransaction_4.commit();
                 return true;
             default:
                 return false;

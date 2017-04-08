@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.newtrekwang.customwidgetdemo.fragment.ContentProviderFragment">
+<EditText
+    android:layout_width="match_parent"
+    android:layout_marginLeft="10dp"
+    android:id="@+id/contentProvider_et"
+    android:layout_marginRight="10dp"
+    android:layout_height="wrap_content" />
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+    <Button
+        android:layout_width="wrap_content"
+        android:text="query"
+        android:id="@+id/query"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/insert"
+        android:text="insert"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+<ListView
+    android:layout_width="match_parent"
+    android:id="@+id/contentProvider_ListView"
+    android:layout_height="match_parent"></ListView>
+</LinearLayout>
