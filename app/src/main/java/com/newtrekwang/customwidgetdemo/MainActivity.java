@@ -15,6 +15,7 @@ import android.widget.SimpleAdapter;
 import com.newtrekwang.customwidgetdemo.activity.CommonActivity;
 import com.newtrekwang.customwidgetdemo.activity.ImageActivity;
 import com.newtrekwang.customwidgetdemo.activity.PullRefreshLayoutActivity;
+import com.newtrekwang.customwidgetdemo.fragment.ItemListDialogFragment;
 import com.newtrekwang.customwidgetdemo.toast.ToastBuilder;
 
 import java.util.ArrayList;
@@ -63,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Map<String,String> map_7=new HashMap<>();
         map_7.put("title","ContentProvider");
         list.add(map_7);
+        Map<String,String> map_8=new HashMap<>();
+        map_8.put("title","BottemSheetDialogFragment");
+        list.add(map_8);
 
     }
 
@@ -103,6 +107,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Intent intent_4=new Intent(MainActivity.this,CommonActivity.class);
                 intent_4.putExtra("key",103);
                 startActivity(intent_4);
+                break;
+            case 7:
+                ItemListDialogFragment listDialogFragment=new ItemListDialogFragment();
+                listDialogFragment.show(getSupportFragmentManager(),"BottemSheetDialogFragment");
                 break;
             default:
                 break;

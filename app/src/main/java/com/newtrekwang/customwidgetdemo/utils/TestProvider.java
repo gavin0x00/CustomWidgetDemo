@@ -19,7 +19,7 @@ public class TestProvider extends ContentProvider {
     // Creates a UriMatcher object.
     private static UriMatcher matcher=new UriMatcher(UriMatcher.NO_MATCH);
 
-    private static final int WORDS=1;
+    private static final int WORDS=1;       
     private static final  int WORD=2;
 
     static {
