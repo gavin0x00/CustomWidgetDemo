@@ -55,4 +55,8 @@ dependencies {
 
     //logger
     compile "com.orhanobut:logger:$rootProject.loggerVersion"
+
+
+    compile project(':annotation')
+    annotationProcessor project(':testcompile')
 }

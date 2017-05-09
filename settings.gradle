@@ -1,1 +1,1 @@
-include ':app', ':practice'
+include ':app', ':practice', ':annotation', ':testcompile'

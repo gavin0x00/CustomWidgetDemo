@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.Test;
 import com.newtrekwang.practice.Helper.OkhttpHelper;
 import com.orhanobut.logger.Logger;
 
@@ -28,6 +29,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
+@Test()
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity>>>>";
     @BindView(R.id.et_downloadLink)
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnDownload;
     @BindView(R.id.btn_get)
     Button btnGet;
+
     @BindView(R.id.btn_post)
     Button btnPost;
 
@@ -120,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
     }
 
     @OnClick({R.id.btn_get, R.id.btn_post,R.id.btn_download})
