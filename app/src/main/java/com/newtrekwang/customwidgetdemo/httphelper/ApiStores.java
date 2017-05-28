@@ -1,7 +1,6 @@
-package com.newtrekwang.practice.Helper;
+package com.newtrekwang.customwidgetdemo.httphelper;
 
 import io.reactivex.Observable;
-import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import retrofit2.http.Url;
 
@@ -13,7 +12,8 @@ import retrofit2.http.Url;
  */
 
 public interface ApiStores {
+
     @GET
-    Observable<ResponseBody> downLoad(@Url String fileUrl);
+    Observable<ProgressResponseBody_1> downLoad(@Url String fileUrl);
 
 }

@@ -13,7 +13,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:text="http://www.loongwind.com/archives/284.html"
+            android:text="http://news.ifeng.com/a/20170518/51117604_0.shtml"
             android:hint="请输入下载地址"
             android:id="@+id/et_downloadLink"
             android:layout_height="match_parent" />

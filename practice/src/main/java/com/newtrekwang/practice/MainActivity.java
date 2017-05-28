@@ -4,13 +4,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.Test;
-import com.newtrekwang.practice.Helper.OkhttpHelper;
+import com.newtrekwang.practice.Helper.MyHttpClient;
 import com.orhanobut.logger.Logger;
 
 import java.io.File;
@@ -23,10 +24,10 @@ import java.io.OutputStream;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Request;
-import okhttp3.Response;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 
 @Test()
@@ -86,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             byte[] bytes = new byte[2048];
-
             long fileSize = responseBody.contentLength();
 
             long fileDownLoadSize = 0;
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 outputStream.write(bytes, 0, read);
                 fileDownLoadSize += read;
-                Log.i(TAG, "writeResponseBodyToDisk: " + "file download :" + fileDownLoadSize + " of " + fileSize);
+
             }
             outputStream.flush();
             return true;
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_get:
-                doGet();
+                doGet(etDownloadLink.getText().toString());
                 break;
             case R.id.btn_post:
                 break;
@@ -138,26 +138,72 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void doGet(final String url) {
+        MyHttpClient.getApi()
+                .downLoad(url)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
-    private void doGet(){
-        Request.Builder builder=new Request.Builder()
-                .url("http://inews.gtimg.com/newsapp_match/0/1436742931/0")
-                .get();
-        final Request request=builder.build();
+                    }
 
-         Call call=OkhttpHelper.getOkhttpClient().newCall(request);
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.i(TAG, "onFailure: !!!!!!!!!!");
-                handler.sendEmptyMessage(100);
-            }
+                    @Override
+                    public void onNext(ResponseBody response) {
+                        if (response!=null){
+                            Log.e(TAG, "onNext: >>>>>>>>>>"+response.contentLength() +"    "+ response.contentType().toString());
+                            writeResponseBodyToDisk(response,getUrlFileName(url));
+                        }
+                    }
 
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                Logger.i(response.headers().toString());
-                writeResponseBodyToDisk(response.body(),"haha.gif");
-            }
-        });
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
+
+
+
+    public static String getUrlFileName(String fileUrl){
+        if (TextUtils.isEmpty(fileUrl)){
+            throw new NullPointerException("fileUrl为空！");
+        }
+        String fileName= fileUrl.substring(fileUrl.lastIndexOf("/")+1);
+        Log.d(TAG, "getUrlFileName: >>>>>>>>>"+fileName);
+        if (!TextUtils.isEmpty(fileName)){
+            return fileName;
+        }
+        return "";
+    }
+
+//    private void doGet(){
+//        Request.Builder builder=new Request.Builder()
+//                .url("http://inews.gtimg.com/newsapp_match/0/1436742931/0")
+//                .get();
+//        final Request request=builder.build();
+//
+//         Call call=OkhttpHelper.getOkhttpClient().newCall(request);
+//        call.enqueue(new Callback() {
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                Log.i(TAG, "onFailure: !!!!!!!!!!");
+//                handler.sendEmptyMessage(100);
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                Logger.i(response.headers().toString());
+//                writeResponseBodyToDisk(response.body(),"haha.gif");
+//            }
+//        });
+//    }
+
+
 }

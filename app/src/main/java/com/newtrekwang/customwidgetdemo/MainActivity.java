@@ -1,14 +1,18 @@
 package com.newtrekwang.customwidgetdemo;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -16,6 +20,7 @@ import com.newtrekwang.customwidgetdemo.activity.CommonActivity;
 import com.newtrekwang.customwidgetdemo.activity.ImageActivity;
 import com.newtrekwang.customwidgetdemo.activity.PullRefreshLayoutActivity;
 import com.newtrekwang.customwidgetdemo.fragment.ItemListDialogFragment;
+import com.newtrekwang.customwidgetdemo.service.DownloadService;
 import com.newtrekwang.customwidgetdemo.toast.ToastBuilder;
 
 import java.util.ArrayList;
@@ -67,6 +72,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Map<String,String> map_8=new HashMap<>();
         map_8.put("title","BottemSheetDialogFragment");
         list.add(map_8);
+        Map<String,String> map_9=new HashMap<>();
+        map_9.put("title","startServiceDownload");
+        list.add(map_9);
+Map<String,String> map_10=new HashMap<>();
+        map_10.put("title","notification");
+        list.add(map_10);
+
 
     }
 
@@ -111,6 +123,28 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case 7:
                 ItemListDialogFragment listDialogFragment=new ItemListDialogFragment();
                 listDialogFragment.show(getSupportFragmentManager(),"BottemSheetDialogFragment");
+                break;
+            case 8:
+                final EditText editText=new EditText(MainActivity.this);
+                editText.setText("http://qiniu-app.pgyer.com/bee391e7cde131eedbdd7db7bfec1979.apk?e=1495978740&attname=app-release.apk&token=6fYeQ7_TVB5L0QSzosNFfw2HU8eJhAirMF5VxV9G:tF_xeFxOJfLB4GOUQ1y01Icxql0=&sign=371f4fba3f23eee42d4869920f7d2476&t=592ad2f4");
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("输入url")
+                        .setView(editText)
+                        .setNegativeButton("取消",null)
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String url=editText.getText().toString();
+                                if (!TextUtils.isEmpty(url)){
+                                    Intent intent_5=new Intent(MainActivity.this, DownloadService.class);
+                                    intent_5.putExtra("url",url);
+                                    startService(intent_5);
+                                }
+                            }
+                        }).create().show();
+                break;
+            case 9:
+
                 break;
             default:
                 break;

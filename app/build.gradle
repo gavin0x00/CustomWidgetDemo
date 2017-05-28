@@ -41,4 +41,24 @@ dependencies {
     compile 'me.relex:circleindicator:1.2.2@aar'
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
+
+
+
+
+    // network
+    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofit2Verson"
+    compile "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.retorfit2Rxjava2AdapterVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.convertGsonVersion"
+    compile "com.google.code.gson:gson:$rootProject.gsonVersion"
+
+
+
+    // reactive
+    compile "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
+    compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+
+    //logger
+    compile "com.orhanobut:logger:$rootProject.loggerVersion"
+
+
 }

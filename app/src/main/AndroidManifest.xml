@@ -27,6 +27,7 @@
             android:enabled="true"
             android:name=".utils.TestProvider"/>
 
+        <service android:name=".service.DownloadService"/>
     </application>
 
 </manifest>

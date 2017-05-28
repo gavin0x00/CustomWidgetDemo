@@ -1,4 +1,4 @@
-package com.newtrekwang.practice.Helper;
+package com.newtrekwang.customwidgetdemo.httphelper;
 
 import android.text.TextUtils;
 
@@ -28,6 +28,7 @@ public class MyHttpClient {
 
     private Retrofit retrofit;
     private ApiStores apiStores;
+    private   OkHttpClient.Builder builder;
     /**
      * 构造方法私有
      */
@@ -35,6 +36,7 @@ public class MyHttpClient {
         //手动创建一个OkHttpClient并设置超时时间
         OkHttpClient.Builder builder=new OkHttpClient.Builder();
         builder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+        this.builder=builder;
         builder.addInterceptor(new LogInterceptor());
         retrofit=new Retrofit.Builder()
                 .client(builder.build())
@@ -57,6 +59,10 @@ public class MyHttpClient {
         return SingletonHolder.INSTANCE.apiStores;
     }
 
+    public static OkHttpClient.Builder getOkhttpClientBuilder(){
+      return   SingletonHolder.INSTANCE.builder;
+    }
+
 
     private class LogInterceptor implements Interceptor {
         @Override
@@ -65,7 +71,7 @@ public class MyHttpClient {
             Logger.d(request.toString()+request.headers().toString());
             okhttp3.Response response = chain.proceed(chain.request());
             okhttp3.MediaType mediaType = response.body().contentType();
-            Logger.d(mediaType.toString());
+            Logger.d(mediaType.toString()+"  length: "+response.body().contentLength()/1024+"kb");
             if (mediaType== MediaType.parse("application/json; charset=utf-8")){
                 String content = response.body().string();
                 if (!TextUtils.isEmpty(content)){
@@ -76,6 +82,7 @@ public class MyHttpClient {
                         .build();
             }
             return response.newBuilder()
+                    .body(response.body())
                     .build();
         }
     }
