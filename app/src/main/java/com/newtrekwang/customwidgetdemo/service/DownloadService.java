@@ -70,7 +70,6 @@ public class DownloadService extends IntentService {
     }
     public DownloadService(){
         this("DownloadService");
-
     }
 
     @Override
