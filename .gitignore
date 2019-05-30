@@ -44,6 +44,7 @@ captures/
 .idea/modules.xml
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
+.idea/
 *.iml
 
 # Keystore files
@@ -59,3 +60,4 @@ google-services.json
 freeline.py
 freeline/
 freeline_project_description.json
+
