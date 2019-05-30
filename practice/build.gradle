@@ -1,8 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
 
     defaultConfig {
         applicationId "com.newtrekwang.practice"
@@ -23,40 +21,40 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.1'
-    testCompile 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:25.3.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
 
 
     // network
-    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofit2Verson"
-    compile "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.retorfit2Rxjava2AdapterVersion"
-    compile "com.squareup.retrofit2:converter-gson:$rootProject.convertGsonVersion"
-    compile "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit2Verson"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.retorfit2Rxjava2AdapterVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.convertGsonVersion"
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
 
 
     // dependency injection
-    compile "com.google.dagger:dagger:$rootProject.dagger2Version"
+    implementation "com.google.dagger:dagger:$rootProject.dagger2Version"
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
-    provided 'javax.annotation:jsr250-api:1.0'
-    compile 'javax.inject:javax.inject:1'
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+    implementation 'javax.inject:javax.inject:1'
 
     // reactive
-    compile "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
-    compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
 
     // code generator for view
-    compile "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
-    apt "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
+    implementation "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
+    annotationProcessor  "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
 
     //logger
-    compile "com.orhanobut:logger:$rootProject.loggerVersion"
+    implementation "com.orhanobut:logger:$rootProject.loggerVersion"
 
 
-    compile project(':annotation')
+    implementation project(':annotation')
     annotationProcessor project(':testcompile')
 }
